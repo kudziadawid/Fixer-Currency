@@ -6,7 +6,9 @@ import java.util.List;
 
 public class Currency {
 
-    private List<String> currencyList = new ArrayList<>();
+    private List<String> currencyNameList = new ArrayList<>();
+
+    private List<Double> currencyValueList = new ArrayList<>();
 
     private String[] allCurrencies = new String[] {"AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS",
             "AUD", "AWG", "AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BRL","BSD","BTC","BTN",
@@ -21,18 +23,22 @@ public class Currency {
             "ZAR","ZMK","ZMW","ZWL"};
 
     public Currency() {
-        currencyList.addAll(Arrays.asList(allCurrencies));
+        currencyNameList.addAll(Arrays.asList(allCurrencies));
     }
 
-    public List<String> getCurrencyList() {
-        return currencyList;
+    public List<Double> getCurrencyValueList() {
+        return currencyValueList;
+    }
+
+    public List<String> getCurrencyNameList() {
+        return currencyNameList;
     }
 
     public String getCurrencyListItem(int position) {
-        return currencyList.get(position);
+        return currencyNameList.get(position);
     }
 
     public int getCurrencyListSize() {
-        return currencyList.size();
+        return currencyNameList.size();
     }
 }
