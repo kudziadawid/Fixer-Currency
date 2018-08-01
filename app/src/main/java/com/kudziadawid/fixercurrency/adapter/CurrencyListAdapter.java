@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.preference.PreferenceActivity;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -33,8 +34,6 @@ import cz.msebera.android.httpclient.Header;
 
 public class CurrencyListAdapter extends RecyclerView.Adapter {
 
-    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd-mm-yyyy");
-
     CurrencyListPresenter currencyListPresenter;
     Currency currency;
     List<String> recyclerList = new ArrayList<>();
@@ -52,10 +51,10 @@ public class CurrencyListAdapter extends RecyclerView.Adapter {
         }
     }
 
-    public CurrencyListAdapter() {
+    public CurrencyListAdapter(CurrencyListPresenter currencyListPresenter) {
 
-        currencyListPresenter = new CurrencyListPresenter();
-        actualDateTime = ZonedDateTime.now();
+        this.currencyListPresenter = currencyListPresenter;
+
     }
 
 //    @Override
@@ -86,7 +85,8 @@ public class CurrencyListAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return currency.getCurrencyListSize();
+//        return Integer.MAX_VALUE;
+        return 1000;
     }
 
 //    @Override
