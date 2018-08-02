@@ -11,7 +11,7 @@ import org.joda.time.format.DateTimeFormatter;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class CurrencyListPresenter {
+public class CurrencyListPresenter extends BasePresenter {
 
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormat.forPattern("dd-MM-yyyy");
     private static final DateTimeFormatter LINK_DATE_FORMATTER = DateTimeFormat.forPattern("yyyy-MM-dd");
