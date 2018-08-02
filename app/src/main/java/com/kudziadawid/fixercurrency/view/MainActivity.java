@@ -4,25 +4,19 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.ListView;
 
-import com.jakewharton.threetenabp.AndroidThreeTen;
 import com.kudziadawid.fixercurrency.R;
 import com.kudziadawid.fixercurrency.adapter.CurrencyListAdapter;
-import com.kudziadawid.fixercurrency.contract.CurrencyListContract;
 import com.kudziadawid.fixercurrency.presenter.CurrencyListPresenter;
 
 import net.danlew.android.joda.JodaTimeAndroid;
 
-import java.util.List;
-
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import timber.log.Timber;
 
-public class MainActivity extends AppCompatActivity implements CurrencyListContract.View {
+public class MainActivity extends AppCompatActivity {
 
-    RecyclerView currencyList;
+    RecyclerView currencyListRV;
 
     CurrencyListPresenter currencyListPresenter;
     CurrencyListAdapter currencyListAdapter;
@@ -32,23 +26,18 @@ public class MainActivity extends AppCompatActivity implements CurrencyListContr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-//        AndroidThreeTen.init(this);
         JodaTimeAndroid.init(this);
         Timber.plant(new Timber.DebugTree());
 
-        currencyList = findViewById(R.id.currency_list);
+        currencyListRV = findViewById(R.id.currency_list);
 
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        currencyList.setLayoutManager(layoutManager);
+        currencyListRV.setLayoutManager(layoutManager);
 
         currencyListPresenter = new CurrencyListPresenter();
-        currencyListAdapter = new CurrencyListAdapter(currencyListPresenter);
-        currencyList.setAdapter(currencyListAdapter);
-    }
 
-    @Override
-    public void showCurrencyList(List<String> currencyNameList) {
-
+        currencyListAdapter = new CurrencyListAdapter(currencyListPresenter, this, currencyListRV);
+        currencyListRV.setAdapter(currencyListAdapter);
     }
 }

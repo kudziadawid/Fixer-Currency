@@ -8,9 +8,7 @@ public class Currency {
 
     private List<String> currencyNameList = new ArrayList<>();
 
-    private List<Double> currencyValueList = new ArrayList<>();
-
-    private String[] allCurrencies = new String[] {"AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS",
+    private String[] allCurrencies = new String[] {"Dzień", "AED", "AFN", "ALL", "AMD", "ANG", "AOA", "ARS",
             "AUD", "AWG", "AZN","BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BRL","BSD","BTC","BTN",
             "BWP","BYR","BZD","CAD","CDF","CHF","CLF","CLP","CNY","COP","CRC","CUP","CVE","CZK","DJF","DKK",
             "DOP","DZD","EGP","ETB","EUR","FJD","FKP","GBP","GEL","GHS","GIP","GMD","GNF","GTQ","GYD","HKD",
@@ -24,14 +22,6 @@ public class Currency {
 
     public Currency() {
         currencyNameList.addAll(Arrays.asList(allCurrencies));
-    }
-
-    public List<Double> getCurrencyValueList() {
-        return currencyValueList;
-    }
-
-    public List<String> getCurrencyNameList() {
-        return currencyNameList;
     }
 
     public String getCurrencyListItem(int position) {
